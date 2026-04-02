@@ -1,8 +1,9 @@
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//urdf/ackermann_car.urdf.xacro
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/stage5_up_with_car.launch.py
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/test_car.launch.py
-/home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/test_car.rviz
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//config/controllers.yaml
+/home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//rviz/stage5_up.rviz
+/home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//rviz/test_car.rviz
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ament_index/resource_index/package_run_dependencies/ackermann_car_description
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ament_index/resource_index/parent_prefix_path/ackermann_car_description
 /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/environment/ament_prefix_path.sh

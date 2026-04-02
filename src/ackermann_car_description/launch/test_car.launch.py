@@ -138,10 +138,20 @@ def generate_launch_description():
         output='screen',
     )
 
+    # steering_controllers_library는 odom TF를 /tf가 아닌 ~/tf_odometry로 발행함
+    # → /tf로 relay해야 RViz/TF2가 odom→base_link 변환을 인식
+    tf_odom_relay = Node(
+        package='topic_tools',
+        executable='relay',
+        name='tf_odom_relay',
+        arguments=['/ackermann_steering_controller/tf_odometry', '/tf'],
+        output='screen',
+    )
+
     # ----------------------------------------------------------------
     # 5. RViz2
     # ----------------------------------------------------------------
-    rviz_config = os.path.join(pkg_car, 'launch', 'test_car.rviz')
+    rviz_config = os.path.join(pkg_car, 'rviz', 'test_car.rviz')
     rviz = Node(
         package='rviz2',
         executable='rviz2',
@@ -161,5 +171,6 @@ def generate_launch_description():
         jsb_spawner,
         ackermann_spawner,
         cmd_vel_relay,
+        tf_odom_relay,
         rviz,
     ])

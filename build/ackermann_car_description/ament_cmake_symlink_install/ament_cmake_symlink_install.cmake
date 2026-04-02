@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "urdf" "launch" "config" "DESTINATION" "share/ackermann_car_description/")
-ament_cmake_symlink_install_directory("/home/kangsoonhyuk/drl_ws/src/ackermann_car_description" DIRECTORY "urdf" "launch" "config" "DESTINATION" "share/ackermann_car_description/")
+# install(DIRECTORY "urdf" "launch" "config" "rviz" "DESTINATION" "share/ackermann_car_description/")
+ament_cmake_symlink_install_directory("/home/kangsoonhyuk/drl_ws/src/ackermann_car_description" DIRECTORY "urdf" "launch" "config" "rviz" "DESTINATION" "share/ackermann_car_description/")
 
 # install(FILES "/home/kangsoonhyuk/drl_ws/build/ackermann_car_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ackermann_car_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/kangsoonhyuk/drl_ws/src/ackermann_car_description" FILES "/home/kangsoonhyuk/drl_ws/build/ackermann_car_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ackermann_car_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

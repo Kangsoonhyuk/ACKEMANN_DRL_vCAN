@@ -1,0 +1,29 @@
+# ROS2 colcon build artifacts
+build/
+install/
+log/
+
+# Temp files
+temp.md
+/tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# C++
+*.o
+*.so
+*.a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
