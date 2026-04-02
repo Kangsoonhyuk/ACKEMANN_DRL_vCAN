@@ -1,1 +1,0 @@
-/home/kangsoonhyuk/drl_ws/src/ackermann_car_description/launch/test_car.launch.py

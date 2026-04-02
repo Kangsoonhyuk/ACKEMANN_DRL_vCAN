@@ -1,1 +1,0 @@
-/home/kangsoonhyuk/drl_ws/src/turtlebot3_gazebo/launch/turtlebot3_drl_stage7.launch.py

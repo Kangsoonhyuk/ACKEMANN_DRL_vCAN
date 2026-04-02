@@ -1,1 +1,0 @@
-/home/kangsoonhyuk/drl_ws/src/turtlebot3_gazebo/models/turtlebot3_drl_world/obstacle_plugin/obstacle3.cc
