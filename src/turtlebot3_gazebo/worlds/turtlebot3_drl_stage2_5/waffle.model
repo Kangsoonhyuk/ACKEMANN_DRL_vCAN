@@ -108,16 +108,25 @@
       </link>
     </model>
 
-    <!-- Static obstacles: original (±1.0, ±1.0) × scale 1.4216 = ±1.42 -->
+    <!--
+      Static obstacles: stage4 동적 장애물 6개와 동일 위치에서 90° CCW 회전 적용
+      (x,y) → (-y, x)
+        (2.45,  2.45) → (-2.45,  2.45)
+       (-2.45, -2.45) → ( 2.45, -2.45)
+        (2.45, -2.45) → ( 2.45,  2.45)
+       (-2.45,  2.45) → (-2.45, -2.45)
+       (-2.45,  0   ) → ( 0,    -2.45)
+        (2.45,  0   ) → ( 0,     2.45)
+    -->
     <model name="static_obstacles">
       <static>1</static>
-      <link name='obstacle_sw'>
-        <pose frame=''>-1.42 -1.42 0.25 0 0 0</pose>
+      <link name='obstacle_1'>
+        <pose frame=''>-2.45 2.45 0.25 0 0 0</pose>
         <collision name='collision'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -126,13 +135,13 @@
           </material>
         </visual>
       </link>
-      <link name='obstacle_nw'>
-        <pose frame=''>-1.42 1.42 0.25 0 0 0</pose>
+      <link name='obstacle_2'>
+        <pose frame=''>2.45 -2.45 0.25 0 0 0</pose>
         <collision name='collision'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -141,13 +150,13 @@
           </material>
         </visual>
       </link>
-      <link name='obstacle_se'>
-        <pose frame=''>1.42 -1.42 0.25 0 0 0</pose>
+      <link name='obstacle_3'>
+        <pose frame=''>2.45 2.45 0.25 0 0 0</pose>
         <collision name='collision'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
@@ -156,13 +165,43 @@
           </material>
         </visual>
       </link>
-      <link name='obstacle_ne'>
-        <pose frame=''>1.42 1.42 0.25 0 0 0</pose>
+      <link name='obstacle_4'>
+        <pose frame=''>-2.45 -2.45 0.25 0 0 0</pose>
         <collision name='collision'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><cylinder><radius>0.15</radius><length>0.5</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <link name='obstacle_5'>
+        <pose frame=''>0 -2.45 0.25 0 0 0</pose>
+        <collision name='collision'>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/White</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <link name='obstacle_6'>
+        <pose frame=''>0 2.45 0.25 0 0 0</pose>
+        <collision name='collision'>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><cylinder><radius>0.16</radius><length>0.5</length></cylinder></geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
