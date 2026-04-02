@@ -40,9 +40,9 @@ def generate_launch_description():
     pkg_world  = get_package_share_directory('turtlebot3_gazebo')
     pkg_gazebo = get_package_share_directory('gazebo_ros')
 
-    urdf_xacro = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
-    base_yaml  = os.path.join(pkg_car, 'config', 'controllers.yaml')
-    world      = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage5_up', 'waffle.model')
+    urdf_xacro    = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
+    base_yaml     = os.path.join(pkg_car, 'config', 'controllers.yaml')
+    world = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage5_up', 'waffle.model')
 
     urdf_for_merge = _get_urdf(urdf_xacro, base_yaml)
     merged_yaml = _build_merged_yaml(urdf_for_merge, base_yaml)
@@ -50,6 +50,8 @@ def generate_launch_description():
 
     # ----------------------------------------------------------------
     # 1. Gazebo (stage5_up world)
+    #    gzclient는 EOL GUI 플러그인 없이 2초 지연 후 실행
+    #    (libgazebo_ros_eol_gui.so의 Camera NULL ptr 크래시 우회)
     # ----------------------------------------------------------------
     gzserver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
