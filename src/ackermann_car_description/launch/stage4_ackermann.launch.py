@@ -13,9 +13,6 @@ _MERGED_YAML = '/tmp/ackermann_car_controllers.yaml'
 
 
 def _get_urdf(xacro_file: str, controllers_yaml_path: str) -> str:
-    """xacro 실행 후 단일 라인으로 압축.
-    gazebo_ros2_control 0.4.x 버그 우회: URDF를 단일 라인으로 만들어 YAML 파싱 오류 방지.
-    """
     result = subprocess.run(
         ['xacro', xacro_file, f'controllers_yaml:={controllers_yaml_path}'],
         capture_output=True, text=True, check=True,
@@ -24,7 +21,6 @@ def _get_urdf(xacro_file: str, controllers_yaml_path: str) -> str:
 
 
 def _build_merged_yaml(urdf: str, base_yaml: str) -> str:
-    """controllers.yaml + robot_description을 병합한 YAML 파일 생성."""
     with open(base_yaml) as f:
         params = yaml.safe_load(f)
     cm = params.setdefault('controller_manager', {}) \
@@ -40,19 +36,14 @@ def generate_launch_description():
     pkg_world  = get_package_share_directory('turtlebot3_gazebo')
     pkg_gazebo = get_package_share_directory('gazebo_ros')
 
-    urdf_xacro    = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
-    base_yaml     = os.path.join(pkg_car, 'config', 'controllers.yaml')
-    world = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage5_up', 'waffle.model')
+    urdf_xacro = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
+    base_yaml  = os.path.join(pkg_car, 'config', 'controllers.yaml')
+    world      = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage4', 'waffle.model')
 
     urdf_for_merge = _get_urdf(urdf_xacro, base_yaml)
-    merged_yaml = _build_merged_yaml(urdf_for_merge, base_yaml)
-    urdf_content = _get_urdf(urdf_xacro, merged_yaml)
+    merged_yaml    = _build_merged_yaml(urdf_for_merge, base_yaml)
+    urdf_content   = _get_urdf(urdf_xacro, merged_yaml)
 
-    # ----------------------------------------------------------------
-    # 1. Gazebo (stage5_up world)
-    #    gzclient는 EOL GUI 플러그인 없이 2초 지연 후 실행
-    #    (libgazebo_ros_eol_gui.so의 Camera NULL ptr 크래시 우회)
-    # ----------------------------------------------------------------
     gzserver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo, 'launch', 'gzserver.launch.py')
@@ -66,9 +57,6 @@ def generate_launch_description():
         ),
     )
 
-    # ----------------------------------------------------------------
-    # 2. robot_state_publisher
-    # ----------------------------------------------------------------
     rsp = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -80,9 +68,6 @@ def generate_launch_description():
         }],
     )
 
-    # ----------------------------------------------------------------
-    # 3. 모델 스폰
-    # ----------------------------------------------------------------
     spawn = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
@@ -93,13 +78,10 @@ def generate_launch_description():
             '-topic',  'robot_description',
             '-x', LaunchConfiguration('x_pose'),
             '-y', LaunchConfiguration('y_pose'),
-            '-z', '0.065',  # wheel_r → 바퀴가 지면에 닿는 높이
+            '-z', '0.065',
         ],
     )
 
-    # ----------------------------------------------------------------
-    # 4. 컨트롤러 spawner
-    # ----------------------------------------------------------------
     jsb_spawner = TimerAction(
         period=4.0,
         actions=[Node(
@@ -133,8 +115,6 @@ def generate_launch_description():
         output='screen',
     )
 
-    # steering_controllers_library는 odom TF를 /tf가 아닌 ~/tf_odometry로 발행함
-    # → /tf로 relay해야 RViz/TF2가 odom→base_link 변환을 인식
     tf_odom_relay = Node(
         package='topic_tools',
         executable='relay',
@@ -143,9 +123,6 @@ def generate_launch_description():
         output='screen',
     )
 
-    # ----------------------------------------------------------------
-    # 5. RViz2
-    # ----------------------------------------------------------------
     rviz_config = os.path.join(pkg_car, 'rviz', 'stage5_up.rviz')
     rviz = Node(
         package='rviz2',

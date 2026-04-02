@@ -38,7 +38,7 @@ def generate_launch_description():
 
     urdf_xacro = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
     base_yaml  = os.path.join(pkg_car, 'config', 'controllers.yaml')
-    world      = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage2_5', 'waffle.model')
+    world      = os.path.join(pkg_world, 'worlds', 'turtlebot3_drl_stage5', 'waffle.model')
 
     urdf_for_merge = _get_urdf(urdf_xacro, base_yaml)
     merged_yaml    = _build_merged_yaml(urdf_for_merge, base_yaml)

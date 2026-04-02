@@ -50,29 +50,16 @@
       </include>
     </model>
 
-    <include>
-      <pose>0 0 0 0 0 0</pose>
-      <uri>model://turtlebot3_drl_world/inner_walls</uri>
-    </include>
-
-    <model name="turtlebot3_drl_obstacle1">
-      <plugin name="obstacle1" filename="libobstacle1.so"/>
+    <model name="turtlebot3_drl_obstacles">
+      <plugin name="obstacles" filename="libobstacles.so"/>
+      <allow_auto_disable>1</allow_auto_disable>
       <include>
-        <pose>2 2 0 0 0 0</pose>
-        <uri>model://turtlebot3_drl_world/obstacle1</uri>
-      </include>
-    </model>
-
-    <model name="turtlebot3_drl_obstacle2">
-      <plugin name="obstacle2" filename="libobstacle2.so"/>
-      <include>
-        <pose>-2 -2 0 0 0 0</pose>
-        <uri>model://turtlebot3_drl_world/obstacle2</uri>
+        <uri>model://turtlebot3_drl_world/obstacles</uri>
       </include>
     </model>
 
     <include>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
       <uri>model://turtlebot3_waffle_pi</uri>
     </include>
 
