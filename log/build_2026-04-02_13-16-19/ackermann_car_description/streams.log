@@ -1,0 +1,26 @@
+[0.016s] Invoking command in '/home/kangsoonhyuk/drl_ws/build/ackermann_car_description': CMAKE_PREFIX_PATH=/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control:/home/kangsoonhyuk/drl_ws/install/turtlebot3_gazebo:/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control_demos:/home/kangsoonhyuk/drl_ws/install/ackermann_car_description:/opt/ros/humble /usr/bin/cmake --build /home/kangsoonhyuk/drl_ws/build/ackermann_car_description -- -j12 -l12
+[0.062s] Invoked command in '/home/kangsoonhyuk/drl_ws/build/ackermann_car_description' returned '0': CMAKE_PREFIX_PATH=/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control:/home/kangsoonhyuk/drl_ws/install/turtlebot3_gazebo:/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control_demos:/home/kangsoonhyuk/drl_ws/install/ackermann_car_description:/opt/ros/humble /usr/bin/cmake --build /home/kangsoonhyuk/drl_ws/build/ackermann_car_description -- -j12 -l12
+[0.072s] Invoking command in '/home/kangsoonhyuk/drl_ws/build/ackermann_car_description': CMAKE_PREFIX_PATH=/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control:/home/kangsoonhyuk/drl_ws/install/turtlebot3_gazebo:/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control_demos:/home/kangsoonhyuk/drl_ws/install/ackermann_car_description:/opt/ros/humble /usr/bin/cmake --install /home/kangsoonhyuk/drl_ws/build/ackermann_car_description
+[0.080s] -- Install configuration: ""
+[0.081s] -- Execute custom install script
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//urdf/ackermann_car.urdf.xacro
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/stage5_up_with_car.launch.py
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/test_car.launch.py
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//launch/test_car.rviz
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description//config/controllers.yaml
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ament_index/resource_index/package_run_dependencies/ackermann_car_description
+[0.082s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ament_index/resource_index/parent_prefix_path/ackermann_car_description
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/environment/ament_prefix_path.sh
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/environment/ament_prefix_path.dsv
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/environment/path.sh
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/environment/path.dsv
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/local_setup.bash
+[0.083s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/local_setup.sh
+[0.084s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/local_setup.zsh
+[0.084s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/local_setup.dsv
+[0.084s] -- Symlinking: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/package.dsv
+[0.093s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ament_index/resource_index/packages/ackermann_car_description
+[0.094s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/cmake/ackermann_car_descriptionConfig.cmake
+[0.094s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/cmake/ackermann_car_descriptionConfig-version.cmake
+[0.094s] -- Up-to-date symlink: /home/kangsoonhyuk/drl_ws/install/ackermann_car_description/share/ackermann_car_description/package.xml
+[0.096s] Invoked command in '/home/kangsoonhyuk/drl_ws/build/ackermann_car_description' returned '0': CMAKE_PREFIX_PATH=/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control:/home/kangsoonhyuk/drl_ws/install/turtlebot3_gazebo:/home/kangsoonhyuk/drl_ws/install/gazebo_ros2_control_demos:/home/kangsoonhyuk/drl_ws/install/ackermann_car_description:/opt/ros/humble /usr/bin/cmake --install /home/kangsoonhyuk/drl_ws/build/ackermann_car_description

@@ -73,9 +73,7 @@
     </link>
   </xacro:macro>
 
-  <!-- ============================================================
-       Front-Left  (steer → wheel)
-  ============================================================ -->
+  <!-- Front-Left -->
   <joint name="front_left_steer_joint" type="revolute">
     <parent link="base_link"/>
     <child  link="front_left_steer_link"/>
@@ -102,9 +100,7 @@
   </joint>
   <xacro:wheel_link name="front_left_wheel"/>
 
-  <!-- ============================================================
-       Front-Right
-  ============================================================ -->
+  <!-- Front-Right -->
   <joint name="front_right_steer_joint" type="revolute">
     <parent link="base_link"/>
     <child  link="front_right_steer_link"/>
@@ -131,9 +127,7 @@
   </joint>
   <xacro:wheel_link name="front_right_wheel"/>
 
-  <!-- ============================================================
-       Rear-Left
-  ============================================================ -->
+  <!-- Rear-Left -->
   <joint name="rear_left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child  link="rear_left_wheel"/>
@@ -144,9 +138,7 @@
   </joint>
   <xacro:wheel_link name="rear_left_wheel"/>
 
-  <!-- ============================================================
-       Rear-Right
-  ============================================================ -->
+  <!-- Rear-Right -->
   <joint name="rear_right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child  link="rear_right_wheel"/>

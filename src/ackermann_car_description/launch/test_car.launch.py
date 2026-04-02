@@ -15,32 +15,17 @@ _MERGED_YAML = '/tmp/ackermann_car_controllers.yaml'
 
 def _get_urdf(xacro_file: str, controllers_yaml_path: str) -> str:
     """xacro 실행 후 단일 라인으로 압축.
-
-    gazebo_ros2_control 0.4.x 버그 근본 원인:
-      '--param robot_description:=<URDF>' 를 rcl 이 YAML plain scalar 로 파싱할 때
-      YAML block scalar 규칙상 continuation line 은 이전 줄보다 들여쓰기가 더 깊어야 함.
-      URDF 는 모든 줄이 column 0 에서 시작하므로 libyaml 이 첫 줄에서 scalar 를 끊고
-      나머지를 별개 토큰으로 파싱 → 파싱 실패 → CM 생성 불가.
-
-    해결: 모든 공백·개행을 단일 스페이스로 압축 → 단일 라인 YAML plain scalar.
-    XML 파서(urdfdom, TinyXML2)는 공백 압축된 XML 을 정상 처리한다.
+    gazebo_ros2_control 0.4.x 버그 우회: URDF를 단일 라인으로 만들어 YAML 파싱 오류 방지.
     """
     result = subprocess.run(
         ['xacro', xacro_file, f'controllers_yaml:={controllers_yaml_path}'],
         capture_output=True, text=True, check=True,
     )
-    urdf = result.stdout
-    # 단일 라인으로 압축 (XML 선언 포함 전체를 공백 기준으로 join)
-    return ' '.join(urdf.split())
+    return ' '.join(result.stdout.split())
 
 
 def _build_merged_yaml(urdf: str, base_yaml: str) -> str:
-    """controllers.yaml + robot_description 를 병합한 YAML 파일을 생성.
-
-    gazebo_ros2_control은 '--params-file' 경로로 YAML을 읽음.
-    YAML은 XML 특수문자를 올바르게 이스케이핑하므로 controller_manager가
-    robot_description을 정상적으로 읽을 수 있음.
-    """
+    """controllers.yaml + robot_description을 병합한 YAML 파일 생성."""
     with open(base_yaml) as f:
         params = yaml.safe_load(f)
     cm = params.setdefault('controller_manager', {}) \
@@ -58,13 +43,8 @@ def generate_launch_description():
     urdf_xacro = os.path.join(pkg_car, 'urdf', 'ackermann_car.urdf.xacro')
     base_yaml  = os.path.join(pkg_car, 'config', 'controllers.yaml')
 
-    # 1) URDF 생성 (임시: base_yaml 경로로 xacro 실행)
     urdf_for_merge = _get_urdf(urdf_xacro, base_yaml)
-
-    # 2) robot_description 포함된 merged yaml 생성
     merged_yaml = _build_merged_yaml(urdf_for_merge, base_yaml)
-
-    # 3) 최종 URDF 생성 (Gazebo 플러그인 <parameters>가 merged yaml을 가리킴)
     urdf_content = _get_urdf(urdf_xacro, merged_yaml)
 
     # ----------------------------------------------------------------
